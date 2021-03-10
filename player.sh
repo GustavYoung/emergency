@@ -17,7 +17,7 @@ sleep 1;
 VIDEOPATH="/home/uslu/ropongi/uploads/genres";
 
 # Nombre de instancia para que no choque con la de uxmalstream
-SERVICE="omxplayer2";
+SERVICE="omxplayer.emer";
 
 # infinite loop!
 while true; do
@@ -25,15 +25,14 @@ while true; do
         then
         sleep 1;
 else
-        for entry in `ls -R $VIDEOPATH/* | sort -R`;
+        for entry in `find /home/uslu/ropongi/uploads/genres/ -regex ".*\.\(mp3\|mp4\)" | sort -R`;
         do
 	echo "start $entry" >> log_$(date +%Y_%m_%d).txt;
         echo "start $entry";
         date >> log_$(date +%Y_%m_%d).txt;
 	clear;
-        cd $VIDEOPATH
         ( cmdpid="$BASHPID";
-        omxplayer -o local $entry >> log_$(date +%Y_%m_%d).txt \
+        omxplayer -o local "$entry" >> log_$(date +%Y_%m_%d).txt \
         & while ! echo "reprod $entry";
         do
                echo "Todo listo";

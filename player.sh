@@ -31,11 +31,17 @@ else
         echo "start $entry";
         date >> log_$(date +%Y_%m_%d).txt;
 	clear;
-        cmdpid="$BASHPID";
         cd $VIDEOPATH
-        omxplayer --genlog -o local "$entry" >> log_$(date +%Y_%m_%d).txt
-	    date >> log_$(date +%Y_%m_%d).txt;
-	    echo "Stop $entry" >> log_$(date +%Y_%m_%d).txt;
+        ( cmdpid="$BASHPID";
+        omxplayer --genlog -o local "$entry" >> log_$(date +%Y_%m_%d).txt\
+        & while ! echo "reprod $entry";
+        do
+               echo "Todo listo";
+               #exit;
+        done
+        wait)
+	date >> log_$(date +%Y_%m_%d).txt;
+	echo "Stop $entry" >> log_$(date +%Y_%m_%d).txt;
         echo "Stop $entry";
         clear;
         echo "." >> log_$(date +%Y_%m_%d).txt;

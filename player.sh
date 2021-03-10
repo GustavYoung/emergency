@@ -25,9 +25,9 @@ while true; do
         then
         sleep 1;
 else
-        for entry in `$VIDEOPATH/* | sort -R`;
+        for entry in `$VIDEOPATH/*.mp3 | sort -R`;
         do
-	    echo "start $entry" >> log_$(date +%Y_%m_%d).txt;
+	echo "start $entry" >> log_$(date +%Y_%m_%d).txt;
         echo "start $entry";
         date >> log_$(date +%Y_%m_%d).txt;
 	clear;

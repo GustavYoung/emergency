@@ -14,7 +14,7 @@ sleep 1;
 #Limpiamos la jodida pantalla?
 #sudo sh -c “TERM=linux setterm -foreground black -clear >/dev/tty0”
 
-VIDEOPATH="/home/uslu/ropongi/uploads/genres/dia";
+VIDEOPATH="/home/uslu/ropongi/uploads/genres";
 
 # Nombre de instancia para que no choque con la de uxmalstream
 SERVICE="omxplayer2";
@@ -25,7 +25,7 @@ while true; do
         then
         sleep 1;
 else
-        for entry in $VIDEOPATH/*.mp3 | sort -R;
+        for entry in `ls -R $VIDEOPATH/*.mp3 | sort -R`;
         do
 	echo "start $entry" >> log_$(date +%Y_%m_%d).txt;
         echo "start $entry";

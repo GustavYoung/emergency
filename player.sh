@@ -33,7 +33,7 @@ else
 	clear;
         cd $VIDEOPATH
         ( cmdpid="$BASHPID";
-        omxplayer -o local "$entry" >> log_$(date +%Y_%m_%d).txt \
+        omxplayer -o local $entry >> log_$(date +%Y_%m_%d).txt \
         & while ! echo "reprod $entry";
         do
                echo "Todo listo";

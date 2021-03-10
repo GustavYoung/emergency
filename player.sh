@@ -32,6 +32,7 @@ else
         date >> log_$(date +%Y_%m_%d).txt;
 	clear;
         cmdpid="$BASHPID";
+        cd $VIDEOPATH
         omxplayer --genlog -o local "$entry" >> log_$(date +%Y_%m_%d).txt
 	    date >> log_$(date +%Y_%m_%d).txt;
 	    echo "Stop $entry" >> log_$(date +%Y_%m_%d).txt;

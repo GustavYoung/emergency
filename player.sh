@@ -25,17 +25,17 @@ while true; do
         then
         sleep 1;
 else
-        for FILE in `$VIDEOPATH/*.mp3 | sort -R`;
+        for entry in $VIDEOPATH/*.mp3 | sort -R;
         do
-	echo "start $FILE" >> log_$(date +%Y_%m_%d).txt;
-        echo "start $FILE";
+	echo "start $entry" >> log_$(date +%Y_%m_%d).txt;
+        echo "start $entry";
         date >> log_$(date +%Y_%m_%d).txt;
 	clear;
         cmdpid="$BASHPID";
-        omxplayer --genlog -o local "$FILE" >> log_$(date +%Y_%m_%d).txt
+        omxplayer --genlog -o local "$entry" >> log_$(date +%Y_%m_%d).txt
 	    date >> log_$(date +%Y_%m_%d).txt;
-	    echo "Stop $FILE" >> log_$(date +%Y_%m_%d).txt;
-        echo "Stop $FILE";
+	    echo "Stop $entry" >> log_$(date +%Y_%m_%d).txt;
+        echo "Stop $entry";
         clear;
         echo "." >> log_$(date +%Y_%m_%d).txt;
         done

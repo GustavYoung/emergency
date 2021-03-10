@@ -2,7 +2,7 @@
 #Copyright 2017-2018 Gustavo Santana
 #(C) 2017-2018 Mirai Works LLC
 #Desactivamos el puto cursor >P
-setterm -cursor off
+#setterm -cursor off
 sleep 1;
 #set -x
 
@@ -33,7 +33,7 @@ else
 	clear;
         cd $VIDEOPATH
         ( cmdpid="$BASHPID";
-        omxplayer --genlog -o local "$entry" >> log_$(date +%Y_%m_%d).txt\
+        omxplayer -o local "$entry" >> log_$(date +%Y_%m_%d).txt \
         & while ! echo "reprod $entry";
         do
                echo "Todo listo";

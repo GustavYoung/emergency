@@ -32,7 +32,7 @@ else
         date >> log_$(date +%Y_%m_%d).txt;
 	clear;
         ( cmdpid="$BASHPID";
-        omxplayer -o local "$entry" >> log_$(date +%Y_%m_%d).txt \
+        omxplayer -o local --no-osd --no-keys "$entry" >> log_$(date +%Y_%m_%d).txt \
         & while ! echo "reprod $entry";
         do
                echo "Todo listo";
